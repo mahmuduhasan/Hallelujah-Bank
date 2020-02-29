@@ -26,19 +26,19 @@
             <div class="col-md-4">
                 <div class="deposit status">
                     <h5>Deposit</h5>
-                    <h2>$00</h2>
+                    <h2>$<span id="currentAmount">00</span></h2>
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="withdraw status">
                     <h5>Withdraw</h5>
-                    <h2>$00</h2>
+                    <h2>$<span id="drawAmount">00</span></h2>
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="balance status">
                     <h5>Balance</h5>
-                    <h2>$00</h2>
+                    <h2>$<span id="totalAmount">00</span></h2>
                 </div>
             </div>
         </div>
@@ -47,8 +47,8 @@
                 <div class="submit-area">
                     <div class="row justify-content-center money">
                         <h4>Deposit</h4>
-                        <input type="text" class="form-control" placeholder="Enter Deposit Amount"></br>
-                        <button class="btn btn-success moneyValue">Deposit</button>
+                        <input type="text" id="depositAmount" class="form-control" placeholder="Enter Deposit Amount"></br>
+                        <button id="btnDeposit" class="btn btn-success moneyValue">Deposit</button>
                     </div>
                 </div>
             </div>
@@ -56,15 +56,15 @@
                 <div class="submit-area">
                     <div class="row justify-content-center money">
                         <h4>Withdraw</h4>
-                        <input type="text" class="form-control" placeholder="Enter Withdraw Amount"></br>
-                        <button class="btn btn-success moneyValue">Withdraw</button>
+                        <input type="text" id="withdrawAmount" class="form-control" placeholder="Enter Withdraw Amount"></br>
+                        <button id="buttonWithdraw" class="btn btn-success moneyValue">Withdraw</button>
                     </div>
                 </div>
             </div>
         </div>
     </div>
     <script>
-        //login button event handler
+        //Login button event handler
         const loginBtn = document.getElementById("login-btn");
         loginBtn.addEventListener("click", function(){
             const loginArea = document.getElementById("login-area");
@@ -72,6 +72,33 @@
             const transactionArea = document.getElementById("transaction-area");
             transactionArea.style.display = "block";
         })
+        //Deposit button event handler
+        const buttonDeposit = document.getElementById("btnDeposit");
+        buttonDeposit.addEventListener("click", function(){
+            //Pull the value of the input and convert it into integer value
+            const saveAmount = document.getElementById("depositAmount").value;
+            const saveNumber = parseFloat(saveAmount);
+            //Pull value of any tag and convert it into meaningful value
+            const presentAmount = document.getElementById("currentAmount").innerText;
+            const presentNumber = parseFloat(presentAmount);
+            //Total and replace it with tag value
+            const totalDeposit = saveNumber + presentNumber;
+            document.getElementById("currentAmount").innerText = totalDeposit;
+        })
+        //Withdraw button event handler
+            const btnWithdraw = document.getElementById("buttonWithdraw");
+            btnWithdraw.addEventListener("click", function(){
+            //Pull the value of the input and convert it into integer value
+            const takenAmount = document.getElementById("withdrawAmount").value;
+            const wdrawNumber = parseFloat(takenAmount);
+            //Pull value of any tag and convert it into meaningful value
+            const nowAmount = document.getElementById("drawAmount").innerText;
+            const nowNumber = parseFloat(nowAmount);
+            //Total and replace it with tag value
+            const totalDeposit = wdrawNumber + nowNumber;
+            document.getElementById("drawAmount").innerText = totalDeposit;
+        })
+
     </script>
 </body>
 </html>
