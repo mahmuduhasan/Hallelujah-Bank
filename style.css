@@ -1,0 +1,68 @@
+body{
+    padding: 100px;
+    background-color: lightblue;
+}
+.submit-area{
+    margin-top: 50px;
+    margin-left: 100px;
+    margin-right: 100px;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 5px 5px 10px gray;
+    padding: 20px 20px;
+}
+.email{
+    margin-bottom: 20px;
+    margin-left: 50px;
+    margin-right: 50px;
+}
+.password{
+    margin-bottom: 20px;
+    margin-left: 50px;
+    margin-right: 50px;
+}
+#transaction-area{
+    display: none;
+}
+#transaction-area h1{
+    text-align: center;
+    margin-bottom: 80px;
+}
+.deposit{
+    background-color: slateblue;
+    margin-bottom: 10px;
+}
+.withdraw{
+    background-color: lightsalmon;
+    margin-bottom: 10px;
+}
+.balance{
+    background-color: orange;
+    margin-bottom: 10px;
+}
+.status{
+    color: lightblue;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 10px;
+}
+.status h5{
+    text-align: center;
+}
+.status h2{
+    text-align: center;
+}
+.show{
+    margin-bottom: 50px;
+}
+.money{
+    padding: 10px 20px;
+}
+.money h4{
+    color: black;
+    text-align: center;
+    margin-bottom: 20px;
+}
+.moneyValue{
+    margin-top: 20px;
+}
