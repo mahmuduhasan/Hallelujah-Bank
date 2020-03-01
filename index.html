@@ -13,15 +13,15 @@
         <h1 class="text-center">Welcome to Hallelujah-Bank.</h1>
         <div class="submit-area">
             <h4 class="text-center">Login</h4></br>
+            <h4 id="message"></h4>
             <div class="row justify-content-center">
-                <input type="text" class="form-control email" placeholder="Enter Your Email">
-                <input type="password" name="" id="" class="form-control password" placeholder="Enter Your Password">
+                <input type="text" id="email" class="form-control email" placeholder="Enter Your Email">
+                <input type="password" name="" id="pass" class="form-control password" placeholder="Enter Your Password">
                 <button id="login-btn" class="btn btn-success">Log-In</button>
             </div>
         </div>
     </div>
     <div class="container" id="transaction-area">
-        <h1>Transaction Area</h1>
         <div class="row show">
             <div class="col-md-4">
                 <div class="deposit status">
@@ -66,12 +66,22 @@
     <script>
         //Login button event handler
         const loginBtn = document.getElementById("login-btn");
+       
         loginBtn.addEventListener("click", function(){
-            const loginArea = document.getElementById("login-area");
-            loginArea.style.display = "none";
-            const transactionArea = document.getElementById("transaction-area");
-            transactionArea.style.display = "block";
+            const givenEmail = document.getElementById("email").value;
+            const password = document.getElementById("pass").value;
+            if( givenEmail == "hallelujah@gmail.com" && password == "nokia1234"){
+                const loginArea = document.getElementById("login-area");
+                loginArea.style.display = "none";
+                const transactionArea = document.getElementById("transaction-area");
+                transactionArea.style.display = "block";
+            }
+            else{
+                document.getElementById("message").innerText = "Wrong email or password.Try again!"
+            }
         })
+       
+        
         //Deposit button event handler
         const buttonDeposit = document.getElementById("btnDeposit");
         buttonDeposit.addEventListener("click", function(){
@@ -81,22 +91,37 @@
             //Pull value of any tag and convert it into meaningful value
             const presentAmount = document.getElementById("currentAmount").innerText;
             const presentNumber = parseFloat(presentAmount);
+
+            const amount = document.getElementById("totalAmount").innerText;
+            const number = parseFloat(amount);
             //Total and replace it with tag value
             const totalDeposit = saveNumber + presentNumber;
+            const amountTotal = saveNumber + number;
             document.getElementById("currentAmount").innerText = totalDeposit;
+            document.getElementById("totalAmount").innerText = amountTotal;
         })
         //Withdraw button event handler
             const btnWithdraw = document.getElementById("buttonWithdraw");
             btnWithdraw.addEventListener("click", function(){
-            //Pull the value of the input and convert it into integer value
+
             const takenAmount = document.getElementById("withdrawAmount").value;
             const wdrawNumber = parseFloat(takenAmount);
-            //Pull value of any tag and convert it into meaningful value
+
             const nowAmount = document.getElementById("drawAmount").innerText;
             const nowNumber = parseFloat(nowAmount);
-            //Total and replace it with tag value
+
+            const amount = document.getElementById("totalAmount").innerText;
+            const number = parseFloat(amount);
+
             const totalDeposit = wdrawNumber + nowNumber;
-            document.getElementById("drawAmount").innerText = totalDeposit;
+            const amountTotal = number - wdrawNumber;
+            if(amountTotal < 0){
+                document.getElementById("totalAmount").innerText = " Deposit first.";
+            }
+            else{ 
+                document.getElementById("drawAmount").innerText = totalDeposit;
+                document.getElementById("totalAmount").innerText = amountTotal;
+            }
         })
 
     </script>
