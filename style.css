@@ -69,7 +69,5 @@ body{
 #message{
     text-align: center;
     margin-bottom: 20px;
-}
-.doStyle{
-    margin-top: 50px;
+    color: white;
 }

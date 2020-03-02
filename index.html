@@ -99,6 +99,7 @@
             const amountTotal = saveNumber + number;
             document.getElementById("currentAmount").innerText = totalDeposit;
             document.getElementById("totalAmount").innerText = amountTotal;
+            document.getElementById("depositAmount").value = "";
         })
         //Withdraw button event handler
             const btnWithdraw = document.getElementById("buttonWithdraw");
@@ -122,6 +123,7 @@
                 document.getElementById("drawAmount").innerText = totalDeposit;
                 document.getElementById("totalAmount").innerText = amountTotal;
             }
+            document.getElementById("withdrawAmount").value = "";
         })
 
     </script>
